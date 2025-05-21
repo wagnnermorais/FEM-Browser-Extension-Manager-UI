@@ -25,4 +25,122 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--main-font);
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: var(--gradient-light);
+}
+
+#app {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--neutral-0);
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem var(--neutral-200);
+}
+
+.theme-toggle {
+  padding: 1rem;
+  background: var(--neutral-100);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 0;
+}
+
+.extension-heading {
+  font-size: calc(var(--main-font-size) * 2);
+  color: var(--neutral-900);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  font-size: var(--main-font-size);
+  font-weight: var(--normal-weight);
+  color: var(--neutral-900);
+  background: var(--neutral-0);
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 1rem var(--neutral-200);
+  cursor: pointer;
+}
+
+.active {
+  color: var(--neutral-100);
+  background: var(--red-400);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.extension-box {
+  padding: 1rem 1.25rem;
+  background: var(--neutral-0);
+  border-radius: 1.25rem;
+  box-shadow: 0 0 1rem var(--neutral-200);
+}
+
+.extension-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.extension-header h2 {
+  font-size: calc(var(--main-font-size) * 1.25);
+  color: var(--neutral-900);
+}
+
+.extension-header p {
+  font-size: calc(var(--main-font-size) - 2px);
+  color: var(--neutral-600);
+}
+
+.extension-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 0.25rem;
+}
+
+.remove-button {
+  padding: 0.5rem 1rem;
+  font-size: var(--main-font-size);
+  font-weight: var(--normal-weight);
+  color: var(--neutral-900);
+  background: var(--neutral-0);
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 1rem var(--neutral-200);
+  cursor: pointer;
 }
