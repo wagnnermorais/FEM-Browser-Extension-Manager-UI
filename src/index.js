@@ -25,9 +25,7 @@ const renderExtensions = () => {
 
     extensionBox.innerHTML = `
       <div class="extension-header">
-        <img src="${extension.logo}" alt="${
-      extension.name
-    } Logo" width="40" height="40">
+        <img src="${extension.logo}" alt="${extension.name} Logo">
         <div>
           <h2>${extension.name}</h2>
           <p>${extension.description}</p>
