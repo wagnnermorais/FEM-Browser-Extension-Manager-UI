@@ -237,3 +237,54 @@ input:checked + .slider {
 input:checked + .slider::before {
   transform: translateX(1.25rem);
 }
+
+@media (max-width: 375px) {
+  header {
+    margin: 1.25rem 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .section-header {
+    display: block;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.25rem 0;
+  }
+
+  main {
+    display: block;
+    padding: 0 1rem;
+  }
+
+  .extension-box {
+    margin: 1rem 0;
+    padding: 0 1rem 1rem;
+  }
+
+  .extension-box img {
+    width: 10rem;
+  }
+
+  .extension-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .extension-header h2 {
+    margin: 1.25rem 0 0;
+    font-size: calc(var(--main-font-size) * 1.25);
+    color: var(--neutral-900);
+  }
+
+  .extension-header p {
+    margin: 0.5rem 0 0;
+    font-size: calc(var(--main-font-size) - 2px);
+  }
+}
