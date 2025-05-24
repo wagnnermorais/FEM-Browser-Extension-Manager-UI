@@ -405,7 +405,6 @@ html.dark .remove-button:focus {
   }
 }
 
-/* === Breakpoint: 1024px até 1199px (2 colunas) === */
 @media (min-width: 1024px) and (max-width: 1199px) {
   header {
     margin: 2rem;
@@ -430,7 +429,6 @@ html.dark .remove-button:focus {
   }
 }
 
-/* === Breakpoint: 1200px até 1439px (3 colunas) === */
 @media (min-width: 1200px) and (max-width: 1439px) {
   header {
     margin: 2rem;
