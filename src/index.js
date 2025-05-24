@@ -101,6 +101,23 @@ const attachToggleEvents = () => {
         saveToLocalStorage();
       }
     });
+
+    document.querySelectorAll(".remove-button").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const name = e.target
+          .closest(".extension-box")
+          .querySelector('input[type="checkbox"]').dataset.name;
+
+        const index = extensions.findIndex((ext) => ext.name === name);
+        if (index !== -1) {
+          extensions.splice(index, 1);
+          saveToLocalStorage();
+          renderExtensions(
+            document.querySelector(".filter-button.active").textContent.trim()
+          );
+        }
+      });
+    });
   });
 };
 
