@@ -43,6 +43,11 @@ html.dark body {
   width: 100%;
   max-width: 1440px;
   min-height: 100vh;
+  transition: filter 0.1s ease;
+}
+
+#app.blur {
+  pointer-events: none;
 }
 
 header {
@@ -237,6 +242,70 @@ input:checked + .slider::before {
   transform: translateX(1.25rem);
 }
 
+.blur {
+  filter: blur(4px);
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  inset: 0;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  color: black;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modal-button {
+  padding: 0.5rem 1.5rem;
+  font-weight: var(--bold-weight);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.danger-button {
+  background-color: var(--red-700);
+  color: var(--neutral-100);
+  transition: background-color 0.3s ease-out;
+}
+
+.danger-button:hover {
+  background-color: var(--red-400);
+}
+
+.cancel-button {
+  background-color: #e0e0e0;
+  transition: background-color 0.3s ease-out;
+}
+
+.cancel-button:hover {
+  background-color: var(--neutral-300);
+}
+
 html.dark header {
   background: var(--neutral-800);
   box-shadow: 0 0 0;
@@ -305,7 +374,7 @@ html.dark .remove-button {
   color: var(--neutral-200);
   background: var(--neutral-800);
   box-shadow: 0 0 2px var(--neutral-200);
-  border: none;
+  border: 2px solid transparent;
 }
 
 html.dark .remove-button:hover {
@@ -319,6 +388,33 @@ html.dark .remove-button:focus {
   border: 2px solid var(--neutral-900);
   outline: groove 2px var(--red-400);
   box-shadow: 0 0 0;
+}
+
+html.dark .modal-content {
+  background: var(--neutral-900);
+  color: var(--neutral-100);
+}
+
+html.dark .danger-button {
+  background: var(--neutral-700);
+  color: var(--neutral-100);
+  transition: background-color 0.3s ease-out;
+}
+
+html.dark .danger-button:hover {
+  background: var(--neutral-300);
+  color: var(--neutral-900);
+}
+
+html.dark .cancel-button {
+  background: var(--neutral-600);
+  color: var(--neutral-100);
+  transition: background-color 0.3s ease-out;
+}
+
+html.dark .cancel-button:hover {
+  background: var(--neutral-300);
+  color: var(--neutral-900);
 }
 
 @media (max-width: 374px) {
@@ -372,6 +468,11 @@ html.dark .remove-button:focus {
   }
 }
 @media (min-width: 375px) and (max-width: 767px) {
+  header {
+    margin: 2rem 1rem;
+    padding: 1rem 1.5rem;
+  }
+
   main {
     grid-template-columns: repeat(1, 1fr);
     padding: 0 1rem;
@@ -385,15 +486,14 @@ html.dark .remove-button:focus {
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
+  header {
+    margin: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
   main {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
     padding: 0 2rem;
-  }
-
-  header {
-    margin: 1.5rem;
-    padding: 1rem 1.5rem;
   }
 
   .section-header {
