@@ -28,7 +28,7 @@ _Working on it._
 
 ## Links
 
-- **URL do site em produção**: _Em desenvolvimento_
+- **URL do site em produção**: https://browserextensionmanagerui.vercel.app
 - **URL do Frontend Mentor**: https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp
 
 ## Funcionalidades
@@ -37,22 +37,22 @@ Os usuários devem ser capazes de:
 
 ### 1. Funcionalidades Principais
 
-- [ ] Alternar extensões entre ativas e inativas
-- [ ] Filtrar extensões por status (ativas/inativas)
-- [ ] Remover extensões da lista
-- [ ] Selecionar o tema de cores da interface
-- [ ] Visualizar o layout otimizado conforme o tamanho da tela do dispositivo
-- [ ] Ver estados de foco e hover em todos os elementos interativos
+- [X] Alternar extensões entre ativas e inativas
+- [X] Filtrar extensões por status (ativas/inativas)
+- [X] Remover extensões da lista
+- [X] Selecionar o tema de cores da interface
+- [X] Visualizar o layout otimizado conforme o tamanho da tela do dispositivo
+- [X] Ver estados de foco e hover em todos os elementos interativos
 
 ### 2. Funcionalidades Extras
 
-- [ ] _Working on it_
+- [X] Modal de confirmação de exclusão de extensão na página.
 
 ## Tecnologias Utilizadas
 
 ### 1. Bibliotecas
 
-- _Nenhuma biblioteca adicionada até o momento._
+- Nenhuma usada.
 
 ### 2. Outras
 
