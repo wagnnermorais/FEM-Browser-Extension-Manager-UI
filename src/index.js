@@ -1,14 +1,18 @@
 import data from "./database/data.json";
 
+const logo = document.querySelector(".header-logo");
 const themeToggleButton = document.querySelector(".theme-toggle");
 const themeIcon = themeToggleButton.querySelector("img");
 const container = document.querySelector("main");
 const filterButtons = document.querySelectorAll(".filter-button");
 const savedState = JSON.parse(localStorage.getItem("extensionsState"));
 
-const toggleTheme = (isDark) => {
+const setTheme = (isDark) => {
   document.documentElement.classList.toggle("dark", isDark);
   localStorage.setItem("theme", isDark ? "dark" : "light");
+
+  logo.src = isDark ? "/images/logo_dark.svg" : "/images/logo.svg";
+  logo.alt = isDark ? "Light Mode Icon" : "Dark Mode Icon";
 
   themeIcon.src = isDark ? "/images/icon-sun.svg" : "/images/icon-moon.svg";
   themeIcon.alt = isDark ? "Light Mode Icon" : "Dark Mode Icon";
@@ -17,17 +21,13 @@ const toggleTheme = (isDark) => {
 const initTheme = () => {
   const savedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-    toggleTheme(true);
-  } else {
-    toggleTheme(false);
-  }
+  const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+  setTheme(isDark);
 };
 
 themeToggleButton.addEventListener("click", () => {
   const isDark = document.documentElement.classList.contains("dark");
-  toggleTheme(!isDark);
+  setTheme(!isDark);
 });
 
 // prettier-ignore
