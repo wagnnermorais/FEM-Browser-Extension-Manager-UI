@@ -321,7 +321,7 @@ html.dark .remove-button:focus {
   box-shadow: 0 0 0;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 374px) {
   header {
     margin: 1.25rem 1rem;
     padding: 0.5rem 1rem;
@@ -369,5 +369,88 @@ html.dark .remove-button:focus {
   .extension-header p {
     margin: 0.5rem 0 0;
     font-size: calc(var(--main-font-size) - 2px);
+  }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  main {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 1rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 0 2rem;
+  }
+
+  header {
+    margin: 1.5rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .section-header {
+    padding: 0 2rem;
+  }
+
+  .extension-header h2 {
+    font-size: calc(var(--main-font-size) * 1.75);
+  }
+}
+
+/* === Breakpoint: 1024px até 1199px (2 colunas) === */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  header {
+    margin: 2rem;
+  }
+
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    padding: 0 2rem;
+  }
+
+  .extension-box {
+    padding: 1rem 1.5rem;
+  }
+
+  .extension-header h2 {
+    font-size: calc(var(--main-font-size) * 1.8);
+  }
+}
+
+/* === Breakpoint: 1200px até 1439px (3 colunas) === */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  header {
+    margin: 2rem;
+  }
+
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    padding: 0 2rem;
+  }
+
+  .extension-box {
+    padding: 1rem 1.5rem;
+  }
+
+  .extension-header h2 {
+    font-size: calc(var(--main-font-size) * 2);
   }
 }
