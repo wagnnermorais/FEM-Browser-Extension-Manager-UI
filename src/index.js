@@ -1,11 +1,17 @@
 import data from "./database/data.json";
 
+const app = document.getElementById("app");
 const logo = document.querySelector(".header-logo");
 const themeToggleButton = document.querySelector(".theme-toggle");
 const themeIcon = themeToggleButton.querySelector("img");
 const container = document.querySelector("main");
 const filterButtons = document.querySelectorAll(".filter-button");
 const savedState = JSON.parse(localStorage.getItem("extensionsState"));
+const modal = document.getElementById("confirm-modal");
+const confirmBtn = document.getElementById("confirm-remove");
+const cancelBtn = document.getElementById("cancel-remove");
+
+let extensionToRemove = null;
 
 const setTheme = (isDark) => {
   document.documentElement.classList.toggle("dark", isDark);
@@ -83,9 +89,22 @@ filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((b) => b.classList.remove("active"));
     button.classList.add("active");
-    renderExtensions(button.textContent.trim());
+    renderExtensions(button.dataset.filter);
   });
 });
+
+const attachRemoveEvents = () => {
+  document.querySelectorAll(".remove-button").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const box = e.target.closest(".extension-box");
+      const name = box.querySelector('input[type="checkbox"]').dataset.name;
+      extensionToRemove = name;
+
+      modal.classList.remove("hidden");
+      app.classList.add("blur");
+    });
+  });
+};
 
 const attachToggleEvents = () => {
   document.querySelectorAll('input[type="checkbox"]').forEach((toggle) => {
@@ -101,25 +120,32 @@ const attachToggleEvents = () => {
         saveToLocalStorage();
       }
     });
-
-    document.querySelectorAll(".remove-button").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const name = e.target
-          .closest(".extension-box")
-          .querySelector('input[type="checkbox"]').dataset.name;
-
-        const index = extensions.findIndex((ext) => ext.name === name);
-        if (index !== -1) {
-          extensions.splice(index, 1);
-          saveToLocalStorage();
-          renderExtensions(
-            document.querySelector(".filter-button.active").textContent.trim()
-          );
-        }
-      });
-    });
   });
+
+  attachRemoveEvents();
 };
+
+confirmBtn.addEventListener("click", () => {
+  if (extensionToRemove) {
+    const index = extensions.findIndex((ext) => ext.name === extensionToRemove);
+    if (index !== -1) {
+      extensions.splice(index, 1);
+      saveToLocalStorage();
+      renderExtensions(
+        document.querySelector(".filter-button.active").textContent.trim()
+      );
+    }
+    extensionToRemove = null;
+    modal.classList.add("hidden");
+    app.classList.remove("blur");
+  }
+});
+
+cancelBtn.addEventListener("click", () => {
+  extensionToRemove = null;
+  modal.classList.add("hidden");
+  app.classList.remove("blur");
+});
 
 initTheme();
 renderExtensions();
