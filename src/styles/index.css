@@ -36,7 +36,6 @@ body {
 
 html.dark body {
   background: var(--gradient-dark);
-  color: #ffffff;
 }
 
 #app {
@@ -63,7 +62,7 @@ header {
   background: var(--neutral-100);
   border: none;
   border-radius: 1rem;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -101,7 +100,7 @@ header {
   border: none;
   border-radius: 1.5rem;
   box-shadow: 0 0 1rem var(--neutral-200);
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -181,7 +180,7 @@ main {
   border: 1px solid var(--neutral-300);
   border-radius: 1.5rem;
   box-shadow: 0 0 1rem var(--neutral-200);
-  transition: all 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
   cursor: pointer;
 }
 
@@ -236,6 +235,90 @@ input:checked + .slider {
 
 input:checked + .slider::before {
   transform: translateX(1.25rem);
+}
+
+html.dark header {
+  background: var(--neutral-800);
+  box-shadow: 0 0 0;
+}
+
+html.dark .theme-toggle {
+  background: var(--neutral-700);
+}
+
+html.dark .theme-toggle:hover {
+  background: var(--neutral-600);
+}
+
+html.dark .theme-toggle:focus {
+  outline: groove 2px var(--red-400);
+}
+
+html.dark .extension-heading {
+  color: var(--neutral-0);
+}
+
+html.dark .filter-button {
+  color: var(--neutral-100);
+  background: var(--neutral-700);
+  box-shadow: 0 0 0;
+}
+
+html.dark .filter-button:hover {
+  background: var(--neutral-600);
+}
+
+html.dark .filter-button:focus {
+  outline: groove 2px var(--red-400);
+}
+
+html.dark .active {
+  font-weight: var(--bold-weight);
+  color: var(--neutral-800);
+  background: var(--red-400);
+}
+
+html.dark .filter-button.active:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--neutral-800), 0 0 0 4px var(--red-500);
+}
+
+html.dark .filter-button.active:focus:hover {
+  color: var(--neutral-200);
+}
+
+html.dark .extension-box {
+  background: var(--neutral-800);
+  box-shadow: 0 0 2px var(--neutral-200);
+}
+
+html.dark .extension-header h2 {
+  color: var(--neutral-100);
+}
+
+html.dark .extension-header p {
+  color: var(--neutral-300);
+  font-weight: var(--normal-weight);
+}
+
+html.dark .remove-button {
+  color: var(--neutral-200);
+  background: var(--neutral-800);
+  box-shadow: 0 0 2px var(--neutral-200);
+  border: none;
+}
+
+html.dark .remove-button:hover {
+  background: var(--red-400);
+  color: var(--neutral-800);
+  font-weight: 600;
+}
+
+html.dark .remove-button:focus {
+  background: var(--neutral-600);
+  border: 2px solid var(--neutral-900);
+  outline: groove 2px var(--red-400);
+  box-shadow: 0 0 0;
 }
 
 @media (max-width: 375px) {
